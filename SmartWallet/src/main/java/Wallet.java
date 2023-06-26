@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Wallet {
 
-    private ArrayList<IChargeable> chargeables = new ArrayList<>();
+    private final ArrayList<IChargeable> chargeables = new ArrayList<>();
     private IChargeable selectedChargeable;
 
     public void addNewCard(IChargeable chargeable){
@@ -21,9 +21,8 @@ public class Wallet {
         return  chargeables.size();
     }
 
-    public double payWithSelectedChargeable(double amount) {
-      //  selectedChargeable.charge(amount);
-        return selectedChargeable.charge(amount);
+    public double payWithSelectedChargeable(double amount) {//this uses the Class of the selectedChargeable
+        return selectedChargeable.charge(amount); //polymorphism example
     }
 
 }

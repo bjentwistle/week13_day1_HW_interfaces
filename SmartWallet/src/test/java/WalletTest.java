@@ -1,9 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class WalletTest {
 
@@ -17,7 +16,7 @@ public class WalletTest {
         wallet = new Wallet();
         creditCard = new CreditCard("Visa Credit", 54321, "Oct 2027", 908,  100, 1.02);
         debitCard = new DebitCard("RBSDebit", 12345, "Sep2025", 987,  76543,"20-45-30", 1000);
-        giftCard = new GiftCard("WHSMith", 10.00);
+        giftCard = new GiftCard("WHSmith", 10.00);
     }
 
     @Test
@@ -31,15 +30,18 @@ public class WalletTest {
     @Test
     public void hasSelectedChargeable(){
         wallet.addNewCard(creditCard);
-        wallet.setSelectedChargeable(0);
-        assertEquals(true, wallet.isSelectedChargeable(creditCard));
+        wallet.addNewCard(debitCard);
+        wallet.addNewCard(giftCard);
+        wallet.setSelectedChargeable(1);
+        assertTrue(wallet.isSelectedChargeable(debitCard));
     }
 
     @Test
-    public void canPayWithSelectedChareable(){
+    public void canPayWithSelectedChargeable(){
+        wallet.addNewCard(creditCard);
+        wallet.addNewCard(debitCard);
         wallet.addNewCard(giftCard);
-        wallet.setSelectedChargeable(0);
-        assertEquals(0.0, wallet.payWithSelectedChargeable(10.00), 0.0);
-
+        wallet.setSelectedChargeable(1);
+        assertEquals(900, wallet.payWithSelectedChargeable(100.00), 0.01);
     }
 }

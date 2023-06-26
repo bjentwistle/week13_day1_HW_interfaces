@@ -15,10 +15,6 @@ public class GiftCard extends Card implements IChargeable {
         return balance;
     }
 
-   // public double reduceBalance(double amountSpent) {
-//        return balance -= amountSpent;
-//    }
-
     @Override
     public double charge(double amount) {
             return balance -= amount;

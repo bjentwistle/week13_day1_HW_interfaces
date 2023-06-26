@@ -1,4 +1,4 @@
-public class GiftCard extends Card {
+public class GiftCard extends Card implements ICharge{
 
     private double balance;
 
@@ -15,9 +15,13 @@ public class GiftCard extends Card {
         return balance;
     }
 
-    public double reduceBalance(double amountSpent) {
-        return balance -= amountSpent;
+   // public double reduceBalance(double amountSpent) {
+//        return balance -= amountSpent;
+//    }
+
+    @Override
+    public double charge(double amount) {
+            return balance -= amount;
     }
 
-//    public void
 }

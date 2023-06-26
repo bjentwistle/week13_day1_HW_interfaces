@@ -8,8 +8,6 @@ import static org.junit.Assert.assertEquals;
 public class DebitCardTest {
 
     DebitCard debitCard;
-    private double transaction1;
-    private double transaction2;
 
     @Before
     public void setUp(){
@@ -22,7 +20,6 @@ public class DebitCardTest {
         double transaction2 = 30.00;
         debitCard.logTransactions(transaction1);
         debitCard.logTransactions(transaction2);
-
         assertEquals(2, debitCard.getTransactions().size());
     }
 }

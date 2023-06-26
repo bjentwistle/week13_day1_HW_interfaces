@@ -7,7 +7,7 @@ public class CreditCardTest {
     CreditCard creditCard;
     @Before
     public void setUp(){
-        creditCard = new CreditCard("Visa Credit", 54321, "Oct 2027", 908,  100);
+        creditCard = new CreditCard("Visa Credit", 54321, "Oct 2027", 908,  100, 1.02);
     }
     @Test
     public void canGetAvailableCredit(){
@@ -16,7 +16,7 @@ public class CreditCardTest {
 
     @Test
     public void reducesAvailableCredit(){
-        assertEquals(89.80, creditCard.addsPercentAndReturnsAvail(10.00, 1.02), 0.0);
+        assertEquals(89.80, creditCard.charge(10.00), 0.0);
     }
 
 //    @Test

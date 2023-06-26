@@ -1,4 +1,4 @@
-public class GiftCard extends Card implements ICharge{
+public class GiftCard extends Card implements IChargeable {
 
     private double balance;
 

@@ -1,3 +1,3 @@
-public interface ICharge {
+public interface IChargeable {
     double charge(double amount);
 }
